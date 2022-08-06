@@ -1,0 +1,106 @@
+-
+	const HOTELS = [
+		{
+			title:"Amara Resort & Spa",
+			image: "img/hotel-1.jpg", alt: "Скалы.",
+			type: "Гостиница", price: 5000, href: "hotel/amara",
+			rating: 8.5, stars: 4, altStar: "четырёхзвёздочный"
+		}, {
+			title:"Villas at Poco Diablo",
+			image: "img/hotel-2.jpg", alt: "Горы.",
+			type: "Гостиница", price: 5000, href: "hotel/villas",
+			rating: 9.2, stars: 4, altStar: "четырёхзвёздочный"
+		}, {
+			title:"Desert Quail Inn",
+			image: "img/hotel-3.jpg", alt: "Ещё гора.",
+			type: "Гостиница", price: 2500, href: "hotel/desert",
+			rating: 6.9, stars: 3, altStar: "трёхзвёздочный"
+		},{
+			title:"GreenTree Inn",
+			image: "img/hotel-4.jpg", alt: "И ещё гора.",
+			type: "Гостиница", price: 1500, href: "hotel/desert",
+			rating: 5, stars: 2, altStar: "двухзвёздочный"
+		},
+	]
+	const starSize = 18;
+	const starGap = 6;
+
+mixin markStars(stars, label, alt)
+	svg(
+		width=stars * starSize + (stars - 1) * starGap,
+		height=starSize,
+		fill="#83B3D3",
+		role="img",
+		aria-labelledby=label
+	)
+		title(id=label)=alt
+		- let n = 0;
+		while n < stars
+			use(href="img/interface.svg#star", width=starSize, height=starSize, x=(starSize + starGap) * n)
+			- n++;
+
+section.hotels
+	h2.subheading._title Найдено гостиниц:
+		output 38
+
+	form(method="GET" action="https://echo.htmlacademy.ru/")._form
+		select(name="sort" aria-label="Сортировать").select.label
+			option(selected, value="cheap") Сначала дешёвые
+			option(value="expensive") Сначала дорогие
+			option(value="popular") Самые популярные
+
+		fieldset.mode
+			legend.visually-hidden Вид
+			-
+				const APPEARANCE = {
+					cards: 'Карточками',
+					panorama: 'Панорамой',
+					table: 'Таблицей'
+				}
+
+			each text, option in APPEARANCE
+				input(type='radio' name='appearance', value=option, id=`mode-${option}` checked=option === 'cards').visually-hidden.mode__input
+				label.mode__label(for=`mode-${option}`)
+					svg(role='img', aria-labelledby=`${option}-title`, fill='black', width=20, height=20)
+						title(id=`${option}-title`)=text
+						use(href=`img/mode.svg#${option}`)
+
+
+		button(type="submit").visually-hidden Отправить
+
+
+	._list
+		each hotel, index in HOTELS
+			article.hotel-card.label
+				h3._title.caption=hotel.title
+				img._image(src=hotel.image alt=hotel.alt)
+				p._info=hotel.type
+				p._info=`От ${hotel.price} ₽`
+				a.button.-secondary(href=hotel.href) Подробнее
+				if index === 1
+					button.button.-selected(type="button") В избранном
+				else
+					button.button(type="button") В избранное
+
+				+markStars(hotel.stars, `stars-${index}`, hotel.altStar)
+				p._rate.button=`Рейтинг: ${String(hotel.rating.toFixed(1)).replace(".", ",")}`
+
+	ol(aria-label="Страницы").pagination
+		li
+			a._page(aria-label='Первая страница') 1
+		each li, index in ['Вторая', 'Третья', 'Четвёртая']
+			li
+				a._page(href="/page2" aria-label=`${li} страница`)=index+2
+		li
+			button._page(type="button" aria-label="Показать ещё") …
+
+		li(value=10)
+			a._page(href="/page10" aria-label='Десятая страница')=10
+
+	label.label._amount
+		| Гостиниц на странице:
+		select(name='amount').select
+			option(value=4, selected) 4
+			option(value=8) 8
+			option(value=12) 12
+			option(value=16) 16

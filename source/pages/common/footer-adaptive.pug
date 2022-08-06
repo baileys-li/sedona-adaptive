@@ -1,0 +1,24 @@
+-
+	const SOCIALS = [
+		{icon: "vk", text: "Мы ВКонтанте", link: "https://vk.com/htmlacademy",
+			width: 25, height: 14 },
+		{icon: "telegram", text: "Наш Телеграм", link: "https://t.me/htmlacademy",
+			width: 19, height: 16 },
+		{icon: "youtube", text: "Наш Ютуб канал", link: "https://www.youtube.com/user/htmlacademyru",
+			width: 23, height: 18},
+	]
+
+footer.footer
+	a._link(href="https://www.instagram.com/explore/tags/visitsedona/")._link #visitSedona
+	ul._socials
+		each social in SOCIALS
+			li
+				a(href=social.link)._social
+					-const iconTitle = social.icon + '-title'
+					svg(fill="currentColor", aria-labelledby=iconTitle, role="img", width=social.width, height=social.height)
+						title(id=iconTitle)=social.text
+						use(href=`img/social.svg#${social.icon}`)
+
+	small._copyright
+		a(href="https://htmlacademy.ru/")="Разработано "
+			img(src="img/htmlacademy.svg", alt="HTML Академией", width=115 height=33)

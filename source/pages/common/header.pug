@@ -1,0 +1,27 @@
+-
+	const NAVIGATION = {
+		'Главная': 'index.html',
+		'Фото и видео': 'catalog.html',
+		'Форма Отзыва': 'form.html',
+		'HTML Academy': 'https://htmlacademy.ru/intensive/adaptive'
+	}
+
+
+header.header
+-
+		const isMainPage = currentPage === 'index.html'
+		const LOGO_SOURCE = "img/sedona.svg"
+
+	a(href=isMainPage ? undefined : "index.html")._logo
+		img(src=LOGO_SOURCE, alt="Герб Седоны", width=185, height=96)
+
+	button.nav-toggler._toggler(type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть навигацию" title="Открыть навигацию")
+		svg(width=23 height=23, stroke="#81B3D2" stroke-width=4, viewBox="0 0 23 23")
+			each s, index in Array(3)
+				-const y = 2 + (5 + 4) * index
+				line(x1=0, y1=y, x2=23, y2=y)
+	nav._nav#main-nav
+		ul._nav-list
+			each link, text in NAVIGATION
+				li
+					a.link.legend._link(href=currentPage === link ? undefined : link)=text

@@ -1,0 +1,26 @@
+-
+	const PHOTOS = [
+		{title: "Неродные просторы", author: "Борис", likes: 1350},
+		{title: "Местная растительность", author: "Сергей", likes: 143},
+		{title: "Дорога на север", author: "Петр", likes: 96},
+		{title: "Мост дьявола", author: "Антон", likes: 254},
+	]
+
+section.gallery
+	h1._title Фото и видео
+	p._subtitle Не можете решиться на путешествие из-за курса? Фотографии помогут вам забыть о политике и экономике.
+
+	ul._list
+		each photo, index in PHOTOS
+			li.photo._post
+				h3._title=photo.title
+				img(src=`https://picsum.photos/280?${index}`, alt=photo.title width=280 height=280)
+				p._author=`Автор фото: ${photo.author}`
+				button(type="button" aria-label="Поставить лайк", aria-description=`Всего лайков ${photo.likes}`)=photo.likes
+					img(src="", alt="")
+
+section.video-present
+	h2._title Все еще сомневаетесь?
+	p._description Смотрите видеопрезентацию и скорее за билетами, пока они не подорожали в очередной раз!
+	video._video(width=280 height=177 controls)
+		source(src='#' type='')
