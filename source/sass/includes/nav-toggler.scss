@@ -1,0 +1,28 @@
+.nav-toggler {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	transition: color 0.3s ease-in-out;
+
+	&[aria-expanded="true"] {
+		color: #fff;
+	}
+
+	&__line {
+		transition: transform 0.3s ease-in-out;
+	}
+
+	&[aria-expanded="true"] &__line {
+		&--top {
+			transform: rotate(45deg) translate(24%, -6%);
+		}
+
+		&--middle {
+			transform: translateX(100%);
+		}
+
+		&--bottom {
+			transform: rotate(-45deg) translate(-52%, -11%);
+		}
+	}
+}

@@ -1,0 +1,39 @@
+@use "../common/variables";
+
+.page {
+	background-color: hsl(0, 0%, 95%);
+	font-family: "PT Sans", system-ui, sans-serif;
+
+	font-size: 22px;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1.18;
+	height: 100%;
+
+	--side-offset: 20px;
+
+	&__body {
+		max-width: 1200px;
+		margin: 0 auto;
+		background-color: hsl(0, 0%, 100%);
+		color: hsl(0, 0%, 0%);
+		box-shadow: 0px 5px 15px hsla(180, 100%, 0%, 0.2);
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+		min-height: 100%;
+	}
+
+	@media (max-width: 600px) {
+		--side-offset: 60px;
+	}
+
+	&__hidden {
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		height: 1px;
+		overflow: hidden;
+		position: absolute;
+		white-space: nowrap;
+		width: 1px;
+	}
+}
