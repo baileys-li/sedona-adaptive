@@ -1,0 +1,27 @@
+@use "../common/mixins";
+
+.link {
+	color: hsl(23deg 15% 40%);
+	transition: color 0.3s ease-in-out;
+	outline: {
+		color: currentColor;
+		offset: 0.4em;
+	}
+	text: {
+		decoration: none;
+		transform: uppercase;
+	}
+
+	&[href],
+	&[type] {
+		color: inherit;
+
+		@include mixins.focus-hover {
+			color: hsl(203deg 47% 66%);
+		}
+
+		&:active {
+			color: hsl(0deg 0% 0% / 30%);
+		}
+	}
+}

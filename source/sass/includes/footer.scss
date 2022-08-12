@@ -1,0 +1,71 @@
+@use "../common/mixins";
+
+.footer {
+	padding: 28px var(--side-offset) 23px;
+	display: grid;
+	justify-items: center;
+	gap: 34px 20px;
+	&__tag {
+		font-weight: 700;
+		font-size: 21px;
+		line-height: 1.24;
+
+		color: #000000;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+
+	&__socials {
+		display: grid;
+		grid-auto: {
+			flow: column;
+			rows: 48px;
+			columns: 48px;
+		}
+		gap: 8px;
+		list-style: none;
+		padding: 0;
+		margin: 0 auto 4px;
+	}
+
+	&__social {
+		color: hsl(0deg 0% 100%);
+		display: grid;
+		height: 100%;
+		place-items: center;
+		background-color: hsl(203deg 47% 66%);
+
+		@include mixins.focus-hover {
+			background-color: hsl(203deg 42% 58%);
+			outline: {
+				color: hsl(203deg 42% 58%);
+				offset: 0.2em;
+			}
+		}
+
+		&:active {
+			color: hsl(0deg 0% 100% / 30%);
+		}
+	}
+
+	&__copyright {
+		display: flex;
+		font: {
+			weight: 400;
+			size: 14px;
+		}
+		line-height: 1.5;
+		gap: 6px;
+		align-items: center;
+	}
+
+	@media (min-width: 600px) {
+		grid-auto-flow: column;
+		justify-content: space-between;
+		align-items: center;
+
+		&__social {
+			margin-bottom: 0;
+		}
+	}
+}
