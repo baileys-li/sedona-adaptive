@@ -1,0 +1,71 @@
+@use "../common/mixins";
+
+.intro {
+	background: {
+		color: #00d8fb;
+		position: center;
+		size: cover;
+	}
+	@include mixins.adaptive-bg("../img/intro/mob");
+	text-align: center;
+	padding: 90px var(--side-offset) 85px;
+	position: relative;
+	overflow: hidden;
+
+	&::after {
+		content: "";
+		background-color: #fff;
+		position: absolute;
+		bottom: -1px;
+		left: -0.5%;
+		height: 27px;
+		width: 101%;
+		clip-path: polygon(0 100%, 0 0, 50% 100%, 100% 0%, 100% 100%);
+	}
+
+	&--simple {
+		@include mixins.adaptive-bg("../img/intro/simple-mob");
+		padding: {
+			top: 52px;
+			bottom: 67px;
+		}
+	}
+
+	@media (min-width: 600px) {
+		@include mixins.adaptive-bg("../img/intro/tablet");
+		padding-bottom: 57px + 34px;
+		padding: 77px;
+		&__image {
+			width: 462px;
+			height: 350px;
+
+			&--simple {
+				width: 460px;
+				height: 78px;
+			}
+		}
+		&::after {
+			height: 57px;
+			clip-path: polygon(0 100%, 0 15%, 10% 42%, 10% 0%, 50% 97%, 90% 0%, 90% 42%, 100% 15%, 100% 100%);
+		}
+
+		&--simple {
+			@include mixins.adaptive-bg("../img/intro/simple-tablet");
+			padding: {
+				top: 95px;
+				bottom: 60px + 57px;
+			}
+		}
+	}
+
+	@media (min-width: 900px) {
+		@include mixins.adaptive-bg("../img/intro/desktop");
+		&::after {
+			clip-path: polygon(0 100%, 0 0, 21.2% 42%, 21.2% 0%, 50% 97%, 78.8% 0%, 78.8% 42%, 100% 0, 100% 100%);
+		}
+
+		&--simple {
+			@include mixins.adaptive-bg("../img/intro/simple-desktop");
+		}
+	}
+}

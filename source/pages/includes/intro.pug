@@ -1,9 +1,11 @@
-section.intro
-	h1.visually-hidden Добро пожаловать в прекрасную Седону!
-	img._image(src="img/welcome.svg", alt="«Потому что Гранд Каньон отстой!»", width=282, height=214)
-
-	//- role="blockquote"
-
-	//- Альтернативно , но не стоит
-	//- img._image(src="img/welcome.svg", alt="Добро пожаловать в прекрасную Седону!", role="heading" aria-level=1 width=458, height=352)
-	//- aria-description="«Потому что Гранд Каньон отстой!»"
+if isMainPage
+	section.intro
+		h1.page__hidden Добро пожаловать в прекрасную Седону!
+		svg._image(width=282, height=214, aria-labelledby="intro-title" role="blockquote")
+			title#intro-title Потому что Гранд Каньон отстой!
+			use(href="img/intro.svg#full")
+else
+	div.intro.-simple
+		svg._image.-simple(width=229, height=39, aria-labelledby="intro-title" role="img")
+			title#intro-title Седона
+			use(href="img/intro.svg#sedona")
