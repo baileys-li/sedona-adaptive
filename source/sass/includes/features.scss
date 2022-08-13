@@ -1,0 +1,131 @@
+@use "../common/variables";
+
+.features {
+	text-transform: uppercase;
+	font-size: 14px;
+	line-height: 1.5;
+	counter-set: feature;
+
+	&__intro {
+		margin: 0;
+		color: hsl(0, 0%, 20%);
+		text-align: center;
+		display: block;
+		padding: 32px 20px 35px;
+		position: relative;
+		background-color: hsl(0, 0%, 100%);
+
+		&::after {
+			content: "";
+			position: absolute;
+			height: 17px;
+			inset: auto 0 -16px;
+			background-color: hsl(0, 0%, 100%);
+			clip-path: polygon(0 0, 50% 100%, 100% 0);
+		}
+	}
+
+	&__title {
+		display: block;
+		font-weight: 700;
+		color: hsl(0, 0%, 0%);
+		margin-bottom: 2em;
+		font-size: 18px;
+		line-height: 1.44;
+	}
+
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		background-color: hsl(0, 0%, 93%);
+
+		&--sub {
+			background-color: hsl(0, 0%, 100%);
+			color: hsl(0, 0%, 20%);
+			padding: 24px 18px 52px;
+			display: grid;
+			gap: 22px 0;
+		}
+	}
+	&__figure {
+		margin: 0;
+	}
+
+	&__panorama {
+		grid-column: 1 / -1;
+		background-color: hsl(203, 47%, 66%);
+		color: #fff;
+
+		.feature {
+			padding-top: 38px;
+			padding-bottom: 36px;
+		}
+
+		&:first-child .feature {
+			padding-top: 54px;
+			padding-bottom: 40px;
+		}
+	}
+
+	&__picture {
+		display: flex;
+		width: 100%;
+	}
+
+	&__image {
+		width: 100%;
+		height: auto;
+	}
+
+	@media (max-width: (500px - 1px)) {
+		&__item {
+			margin: 0 20px;
+			min-height: 166px;
+			& + & {
+				border-top: 1px solid hsl(0, 0%, 84%);
+			}
+		}
+	}
+
+	@media (min-width: 500px) {
+		&__intro {
+			padding-top: 48px;
+			padding-bottom: 56px;
+			&::after {
+				content: none;
+			}
+		}
+		&__title {
+			font-size: 21px;
+			line-height: 1.24;
+			margin: 0 auto 25px;
+			max-width: 580px;
+		}
+
+		&__list,
+		&__figure {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		&__list--sub {
+			padding: 0;
+		}
+
+		&__picture {
+			grid-column-end: span 2;
+			height: 100%;
+		}
+
+		&__image {
+			height: 100%;
+			object-fit: cover;
+		}
+
+		&__panorama:nth-child(even) &__picture {
+			order: -1;
+		}
+	}
+}

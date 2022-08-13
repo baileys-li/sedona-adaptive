@@ -1,0 +1,39 @@
+.extra-feature {
+	display: grid;
+	grid-template-columns: 40px 1fr;
+	gap: 0 7px;
+
+	&__title {
+		margin: 8px 0 16px;
+	}
+
+	&__icon {
+		grid-column: 1 / 2;
+		grid-row: 1 / 3;
+	}
+
+	&__description {
+		margin: 0;
+	}
+
+	@media (min-width: 500px) {
+		grid-template-columns: 1fr;
+		text-align: center;
+		padding: 20px 36px;
+		min-height: 330px;
+		align-content: center;
+
+		&__icon {
+			width: 75px;
+			height: 75px;
+			margin: 0 auto;
+			grid-row: auto;
+			order: -1;
+		}
+		&__title {
+			font-size: 21px;
+			line-height: 1.24;
+			margin: 26px 0;
+		}
+	}
+}

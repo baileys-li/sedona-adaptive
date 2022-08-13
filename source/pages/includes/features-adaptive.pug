@@ -3,32 +3,26 @@
 		{
 			title: "Жилье",
 			description: "Рекомендуем пожить в настоящем мотеле, всё как в кино!",
-			icon: "housing"},
+			icon: "house"},
 		{
 			title: "Еда",
 			description: "Всегда заказывайте топовый фирменный бургер, вы не разочаруетесь!",
-			icon: "eating"},
+			icon: "burger"},
 		{
 			title: "Сувениры",
 			description: "Не только китайского, но и настоящего местного производства!",
-			icon: "souvenir"}
+			icon: "present"},
 	]
 	const FEATURES = [
 		{
 			title: "Настоящий городок",
 			description: "Седона не аттракцион для туристов, там течет своя жизнь", accent: true,
-			image: {
-				src: 'img/photo-1.jpg',
-				alt: "Уютная площадь в небольшом городишке."
-			},
+			imageAlt: "Уютная площадь в небольшом городишке.",
 			extra: EXTRA_FEATURES
 		}, {
 			title: "Там есть мост дьявола",
 			description: "Да, по нему можно пройти! Если вы осмелитесь, разумеется", accent: true,
-			image: {
-				src: 'img/photo-2.jpg',
-				alt: "Обтёсанный природой каменный мост сквозь ущелье"
-			}
+			imageAlt: "Обтёсанный природой каменный мост сквозь ущелье",
 		}, {
 			title: "Небольшая площадь",
 			description: "Все достопримечательности находятся очень близко"
@@ -41,37 +35,36 @@
 		}]
 
 section.features
-	h2.visually-hidden Преимущества
+	h2.page__hidden Преимущества
 	p._intro
-		strong.subheading._title Седона — небольшой городок в Аризоне, заслуживающий большего!
+		strong._title Седона — небольшой городок в Аризоне, заслуживающий большего!
 		|  Рассмотрим 5 причин, по которым Седона круче, чем Гранд Каньон!
 	ol._list
 		each feature, index in FEATURES
-			if feature.image
+			if feature.imageAlt
 				li._panorama
-					figure._figure(
-						class=`${index !== 0 ? 'features__figure--reverse' : ''}`
-					)
-						figcaption.feature.-order.-order.label
-							h3.caption= feature.title
+					figure._figure
+						figcaption.feature
+							h3._title= feature.title
 							p._description= feature.description
-
-						img(
-							src=feature.image.src,
-							alt=feature.image.alt
-              width=800
-              height=384
-						).features__picture
+						+responsiveImage({
+							source: `img/features/photo-${index + 1}`, mainExt: "jpg",
+							className: "features__image", pictureClass: "features__picture",
+							alt: feature.imageAlt,
+							width: 320, height: 260,
+							suffixes :  ["desk", "tab", "mob"], extensions: ["avif", "webp"], sizes: [2, 3],
+							medias: ["min-width: 600px", "min-width: 1000px"]
+						})
 					if feature.extra
 						ul._list.-sub
 							each subitem in feature.extra
-								li.feature.label._item
-									h4.caption= subitem.title
-									svg._icon(fill='#83B3D3' aria-hidden="true", width=75, height=75)
-										use(href=`img/feature.svg#${subitem.icon}`)
+								li.extra-feature
+									h4._title= subitem.title
+									svg._icon(fill='#83B3D3' aria-hidden="true", width=40, height=40)
+										use(href=`img/features.svg#${subitem.icon}`)
 
 									p._description= subitem.description
 			else
-				li.feature.-order.label._item
-					h3.caption=feature.title
+				li.feature._item
+					h3._title=feature.title
 					p._description=feature.description

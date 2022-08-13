@@ -1,0 +1,16 @@
+mixin sourceForResponsiveImage({filename, extension, sizes, media})
+	source(srcset=[`${filename}.${extension}`, ...sizes.map(size => `${filename}@${size}x.${extension} ${size}x`)].join(', ') type=`image/${extension}` media=media)
+
+mixin responsiveImage({source, mainExt="png", className, pictureClass, alt, width, height, suffixes = ["desk", "tab", "mob"], extensions=["avif", "webp"], sizes=[2, 3], medias=[]})
+	picture(class=pictureClass)
+		each media, index in medias
+			each extension in [...extensions, mainExt]
+				+sourceForResponsiveImage({filename: `${source}-${suffixes[index]}`, sizes, media: `(${media})`, extension})
+		-
+			const lastSuffix = suffixes[suffixes.length - 1]
+			const lastName = `${source}-${lastSuffix}`
+
+		each extension in extensions
+			+sourceForResponsiveImage({filename: lastName, sizes, extension})
+
+		img(class=className src=`${lastName}.${mainExt}`, srcset=sizes.map(size => `${lastName}@${size}x.${mainExt} ${size}x`).join(', ') alt=alt width=width height=height )

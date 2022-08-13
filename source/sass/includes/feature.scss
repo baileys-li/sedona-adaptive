@@ -1,0 +1,31 @@
+.feature {
+	padding: 24px 20px;
+	text-align: center;
+
+	&__title {
+		margin: 0;
+	}
+
+	&__description {
+		margin: 0;
+
+		&::before {
+			counter-increment: feature;
+			content: "— №" counter(feature) " —";
+			display: block;
+			margin: 20px;
+		}
+	}
+
+	@media (min-width: 500px) {
+		min-height: 256px;
+		padding: 40px 32px;
+		display: grid;
+		align-content: center;
+
+		&__title {
+			font-size: 21px;
+			line-height: 1.24;
+		}
+	}
+}
