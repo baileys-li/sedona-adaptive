@@ -13,7 +13,7 @@ footer.footer
 	ul._socials
 		each social in SOCIALS
 			li
-				a(href=social.link)._social
+				a(href=social.link).button._social
 					-const iconTitle = social.icon + '-title'
 					svg(fill="currentColor", aria-labelledby=iconTitle, role="img", width=social.width, height=social.height)
 						title(id=iconTitle)=social.text

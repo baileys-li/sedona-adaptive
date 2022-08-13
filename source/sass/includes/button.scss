@@ -1,0 +1,46 @@
+@use "../common/mixins";
+
+.button {
+	font: {
+		family: inherit;
+		weight: 700;
+		size: 21px;
+	}
+	line-height: 1.24;
+	text: {
+		transform: uppercase;
+		decoration: none;
+	}
+
+	color: hsl(0, 0%, 100%);
+	background-color: hsl(203, 47%, 66%);
+
+	padding: 16px;
+	border: none;
+
+	text-align: center;
+
+	transition: {
+		property: background-color, color;
+		duration: 200ms;
+		timing-function: ease-in;
+	}
+	cursor: pointer;
+
+	@include mixins.focus-hover {
+		background-color: hsl(203deg 42% 58%);
+		outline: {
+			color: hsl(203deg 42% 58%);
+			offset: 0.2em;
+		}
+	}
+
+	&:active {
+		background-color: hsl(202, 44%, 54%);
+		color: hsl(0deg 0% 100% / 30%);
+	}
+	&:disabled {
+		background-color: hsl(0, 0%, 90%);
+		cursor: default;
+	}
+}

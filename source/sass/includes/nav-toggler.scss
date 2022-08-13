@@ -1,11 +1,25 @@
+@use "../common/mixins";
+
 .nav-toggler {
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
 	transition: color 0.3s ease-in-out;
 
+	color: hsl(203deg 47% var(--lightning, 66%) / var(--opacity, 100%));
+
+	outline-color: currentColor;
+
+	@include mixins.focus-hover {
+		--opacity: 60%;
+	}
+
+	&:active {
+		--opacity: 30%;
+	}
+
 	&[aria-expanded="true"] {
-		color: #fff;
+		--lightning: 100%;
 	}
 
 	&__line {

@@ -29,23 +29,10 @@
 	}
 
 	&__social {
-		color: hsl(0deg 0% 100%);
+		padding: 0;
 		display: grid;
 		height: 100%;
 		place-items: center;
-		background-color: hsl(203deg 47% 66%);
-
-		@include mixins.focus-hover {
-			background-color: hsl(203deg 42% 58%);
-			outline: {
-				color: hsl(203deg 42% 58%);
-				offset: 0.2em;
-			}
-		}
-
-		&:active {
-			color: hsl(0deg 0% 100% / 30%);
-		}
 	}
 
 	&__copyright {

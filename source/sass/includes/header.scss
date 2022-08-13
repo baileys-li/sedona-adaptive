@@ -9,6 +9,11 @@ $breakpoint: 700px;
 	z-index: 10;
 	top: 0;
 	background-color: #fff;
+	font: {
+		size: 18px;
+		weight: 700;
+	}
+	line-height: 1.44;
 	&__logo {
 		position: absolute;
 		top: 0;
@@ -19,7 +24,6 @@ $breakpoint: 700px;
 	&__toggler {
 		justify-self: end;
 		padding: 17px 20px;
-		color: hsl(203, 47%, 66%);
 		z-index: 12;
 	}
 
@@ -32,8 +36,6 @@ $breakpoint: 700px;
 	&__link {
 		color: inherit;
 		display: flex;
-		font-size: 18px;
-		line-height: 1.44;
 		padding: 18px 20px;
 		height: 100%;
 		place-content: center;
@@ -48,20 +50,20 @@ $breakpoint: 700px;
 		&__nav {
 			margin-top: 96px;
 			color: hsl(0, 0%, 100%);
-			transition: opacity 0.3s ease-in-out;
+			transition: transform 0.3s ease-in-out;
 			width: 100%;
 
 			&--enabled {
-				opacity: 0;
 				position: absolute;
 				pointer-events: none;
 				margin: 0;
+				transform: translateY(-120%);
 			}
 
 			&--opened {
-				opacity: 1;
 				z-index: 10;
 				pointer-events: auto;
+				transform: translateY(0);
 			}
 		}
 
@@ -71,6 +73,10 @@ $breakpoint: 700px;
 				bottom: 1px solid hsla(0, 0%, 0%, 0.2);
 				top: 1px solid hsla(0, 0%, 100%, 0.2);
 			}
+			outline: none;
+			&:not([href]) {
+				color: inherit;
+			}
 
 			&[href] {
 				@include mixins.focus-hover {
@@ -79,10 +85,21 @@ $breakpoint: 700px;
 					border-top: 1px solid hsla(0, 0%, 100%, 0.4);
 				}
 			}
+
+			&:active {
+				background-color: hsl(202, 44%, 54%);
+				color: hsl(0deg 0% 100% / 30%);
+			}
+		}
+
+		&__item:last-child &__link {
+			box-shadow: inset 0px -8px 8px 0px rgb(0 0 0 / 20%)
 		}
 	}
 
 	@media (min-width: $breakpoint) {
+		font-size: 14px;
+		line-height: 1.5;
 		&__toggler {
 			display: none;
 		}
@@ -96,26 +113,6 @@ $breakpoint: 700px;
 		&__item {
 			&:nth-child(4n + 3) {
 				grid-column: 4 / 5;
-			}
-		}
-
-		&__link {
-			font-weight: 700;
-			font-size: 14px;
-			line-height: 1.5;
-			padding: 10px;
-			transition: background-color 0.3s ease-in-out;
-			&:not([href]) {
-				color: hsl(23, 15%, 40%);
-			}
-
-			&[href] {
-				@include mixins.focus-hover {
-					color: hsl(23, 15%, 40%);
-					background-color: rgba(hsl(203, 47%, 66%), 10%);
-					// text-decoration: underline hsl(23, 15%, 40%) 2px;
-					// text-underline-offset: 22px;
-				}
 			}
 		}
 	}
