@@ -1,18 +1,4 @@
-$weights: 400, 700;
-
-@mixin connect-font($family, $file,  $weight: 400) {
-	@font-face {
-		font-family: $family;
-		font-weight: $weight;
-		font-style: normal;
-		font-display: swap;
-		src: url($file) format("woff2");
-	}
-}
-
-@each $weight in $weights {
-	@include connect-font("PT Sans", "../fonts/pt-sans-cyrillic-#{$weight}-normal.woff2", $weight);
-}
+@use "./fonts";
 
 *,
 *::before,
@@ -23,4 +9,28 @@ $weights: 400, 700;
 img {
   max-width: 100%;
   object-fit: contain;
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: hsl(202, 44%, 54%);
+	border-radius: 10px;
+
+	&:hover {
+		background: hsl(203deg 42% 58%);
+	}
+}
+
+::selection {
+	color: #ffffff;
+	background-color: hsl(202, 44%, 54%);
 }
