@@ -1,5 +1,5 @@
-form.form( method='get')
-	h1._title Оставьте свой отзыв
+form.form(method='post' action="https://echo.htmlacademy.ru/")
+	h1._title.page__title Оставьте свой отзыв
 	p._subtitle Помогите нашим отелям стать лучше! Оставьте отзыв о них, а также о посещенных вами достопримечательностях
 	fieldset._field
 		legend._legend Представьтесь
@@ -34,7 +34,7 @@ form.form( method='get')
 				span._icon
 
 	fieldset._field
-		legend._title Ваше общее впечатление
+		legend._legend Ваше общее впечатление
 		label.radio
 			input._native.visually-hidden(type='radio' name='evaluation' value='positive' checked)
 			span._custom Скорее положительное
@@ -46,7 +46,7 @@ form.form( method='get')
 			span._custom Затрудняюсь ответить
 
 	fieldset._field
-		legend._title Посещенные достопримечательности
+		legend._legend Посещенные достопримечательности
 		label.checkbox
 			input._native.visually-hidden(type='checkbox' name='bridge' checked)
 			span._custom Мост Дьявола
@@ -64,9 +64,10 @@ form.form( method='get')
 			span._custom Красные скалы
 
 	fieldset._field.input
-		legend.visually-hidden Дополнительно
-		label._title Опишите свои эмоции
-			textarea.input__field.-area(name="", cols="30", rows="10", placeholder='Опишите подробно все свои восторги' aria-label="Опишите свои эмоции")
+		legend._legend#textarea-label Опишите свои эмоции
 
-	button._submit.button(type='submit') Отправить отзыв
-	small._note * — обязательные поля
+		textarea.input__field.-area(name="", cols="30", rows="10", placeholder='Опишите подробно все свои восторги' aria-labelledby="textarea-label")
+
+	p._footer
+		button._submit.button(type='submit') Отправить отзыв
+		small._note * — обязательные поля
