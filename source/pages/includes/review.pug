@@ -1,27 +1,27 @@
 form.form(method='post' action="https://echo.htmlacademy.ru/")
 	h1._title.page__title Оставьте свой отзыв
 	p._subtitle Помогите нашим отелям стать лучше! Оставьте отзыв о них, а также о посещенных вами достопримечательностях
-	fieldset._field
+	fieldset._field.-personal
 		legend._legend Представьтесь
 		label.input
 			span._label Имя
-				span(aria-hidden="true") *
+				a(href="#required" aria-hidden="true" tabindex=-1).form__required *
 			input._field(type='text' name='first-name' value='Пётр' required)
 
 		label.input
 			span._label Фамилия
-				span(aria-hidden="true") *
+				a(href="#required" aria-hidden="true" tabindex=-1).form__required *
 			input._field(type='text' name='last-name' value='Пустота' required)
 
 		label.input
 			span._label Отчество
 			input._field(type='text' name='patronymic' value='Викторович')
 
-	fieldset._field
+	fieldset._field.-contact
 		legend._legend Контактная информация
 		label.input
 			span._label Контактный телефон
-				span(aria-hidden="true") *
+				a(href="#required" aria-hidden="true" tabindex=-1).form__required *
 			span._wrapper
 				input._field.-icon(type='tel' name='telephone' placeholder='Введите телефон' required)
 				span._icon
@@ -33,20 +33,20 @@ form.form(method='post' action="https://echo.htmlacademy.ru/")
 				input._field(type='email' name='email' placeholder='Введите e-mail' required)
 				span._icon
 
-	fieldset._field
-		legend._legend Ваше общее впечатление
+	fieldset._field.-impression
+		legend._legend.-full Ваше общее впечатление
 		label.radio
-			input._native.visually-hidden(type='radio' name='evaluation' value='positive' checked)
+			input._native.visually-hidden(type='radio' name='impression' value='positive' checked)
 			span._custom Скорее положительное
 		label.radio
-			input._native.visually-hidden(type='radio' name='evaluation' value='negative' )
+			input._native.visually-hidden(type='radio' name='impression' value='negative' )
 			span._custom Скорее отрицательное
 		label.radio
-			input._native.visually-hidden(type='radio' name='evaluation' value='unknown' )
+			input._native.visually-hidden(type='radio' name='impression' value='unknown' )
 			span._custom Затрудняюсь ответить
 
-	fieldset._field
-		legend._legend Посещенные достопримечательности
+	fieldset._field.-places
+		legend._legend.-full Посещенные достопримечательности
 		label.checkbox
 			input._native.visually-hidden(type='checkbox' name='bridge' checked)
 			span._custom Мост Дьявола
@@ -63,11 +63,11 @@ form.form(method='post' action="https://echo.htmlacademy.ru/")
 			input._native.visually-hidden(type='checkbox' name='rocks')
 			span._custom Красные скалы
 
-	fieldset._field.input
-		legend._legend#textarea-label Опишите свои эмоции
+	fieldset._field.-emotions.input
+		legend._legend.-full#textarea-label Опишите свои эмоции
 
 		textarea.input__field.-area(name="", cols="30", rows="10", placeholder='Опишите подробно все свои восторги' aria-labelledby="textarea-label")
 
 	p._footer
 		button._submit.button(type='submit') Отправить отзыв
-		small._note * — обязательные поля
+		small._note#required * — обязательные поля
