@@ -24,14 +24,16 @@ form.form(method='post' action="https://echo.htmlacademy.ru/")
 				a(href="#required" aria-hidden="true" tabindex=-1).form__required *
 			span._wrapper
 				input._field.-icon(type='tel' name='telephone' placeholder='Введите телефон' required)
-				span._icon
+				svg._icon(width=18 height=18 fill="#010101" aria-hidden="true")
+					use(href="img/sprite.svg#phone")
 
 		label.input
 			span._label Электронная почта
 				span(aria-hidden="true") *
 			span._wrapper
 				input._field(type='email' name='email' placeholder='Введите e-mail' required)
-				span._icon
+				svg._icon(width=18 height=18 fill="#010101" aria-hidden="true")
+					use(href="img/sprite.svg#mail")
 
 	fieldset._field.-impression
 		legend._legend.-full Ваше общее впечатление
