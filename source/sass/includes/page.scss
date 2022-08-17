@@ -23,6 +23,10 @@
 		display: grid;
 		grid-template-rows: auto 1fr auto;
 		min-height: 100%;
+		text: {
+			transform: uppercase;
+			align: center;
+		}
 	}
 
 	@media (min-width: 720px) {

@@ -7,7 +7,6 @@
 		size: cover;
 	}
 	@include mixins.adaptive-bg("../img/intro/mob");
-	text-align: center;
 	padding: 90px 20px 85px;
 	position: relative;
 	overflow: hidden;
