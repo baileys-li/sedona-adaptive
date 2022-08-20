@@ -1,0 +1,28 @@
+.gallery {
+
+	&__list {
+		list-style: none;
+		padding: 0;
+		margin: 25px 0 16px;
+		text-align: left;
+		text-transform: none;
+	}
+
+	@media (min-width: 500px) {
+		padding: 62px var(--side-offset) 58px;
+		&__list {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+
+		&__post:first-child {
+			grid-column: 1 / -1;
+		}
+	}
+	@media (min-width: 900px) {
+		padding: 100px 0 62px;
+		&__list {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+}

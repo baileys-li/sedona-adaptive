@@ -1,3 +1,16 @@
+
+-
+	const IMPRESSIONS = {
+		positive: "Скорее положительное",
+		negative: "Скорее отрицательное",
+		unknown: "Затрудняюсь ответить"
+	}, PLACES = {
+		bridge: "Мост Дьявола",
+		mountain: "Гора-Колокол",
+		park: "Слайд-парк",
+		rocks: "Красные скалы"
+	}
+
 form.form(method='post' action="https://echo.htmlacademy.ru/")
 	h1._title.page__title Оставьте свой отзыв
 	p._subtitle Помогите нашим отелям стать лучше! Оставьте отзыв о них, а также о посещенных вами достопримечательностях
@@ -37,38 +50,22 @@ form.form(method='post' action="https://echo.htmlacademy.ru/")
 
 	fieldset._field.-impression
 		legend._legend.-full Ваше общее впечатление
-		label.radio
-			input._native.visually-hidden(type='radio' name='impression' value='positive' checked)
-			span._custom Скорее положительное
-		label.radio
-			input._native.visually-hidden(type='radio' name='impression' value='negative' )
-			span._custom Скорее отрицательное
-		label.radio
-			input._native.visually-hidden(type='radio' name='impression' value='unknown' )
-			span._custom Затрудняюсь ответить
+		each text, value in IMPRESSIONS
+			label.custom-chose
+				input._native.page__hidden(type='radio' name='impression' value=value checked=value === 'positive')
+				span._custom.-radio=text
 
 	fieldset._field.-places
 		legend._legend.-full Посещенные достопримечательности
-		label.checkbox
-			input._native.visually-hidden(type='checkbox' name='bridge' checked)
-			span._custom Мост Дьявола
-
-		label.checkbox
-			input._native.visually-hidden(type='checkbox' name='mountain' checked)
-			span._custom Гора-Колокол
-
-		label.checkbox
-			input._native.visually-hidden(type='checkbox' name='park' checked)
-			span._custom Слайд-парк
-
-		label.checkbox
-			input._native.visually-hidden(type='checkbox' name='rocks')
-			span._custom Красные скалы
+		each text, name in PLACES
+			label.custom-chose
+				input._native.page__hidden(type='checkbox' name=name checked=name !== 'rocks')
+				span._custom.-check=text
 
 	fieldset._field.-emotions.input
 		legend._legend.-full#textarea-label Опишите свои эмоции
 
-		textarea.input__field.-area(name="", cols="30", rows="10", placeholder='Опишите подробно все свои восторги' aria-labelledby="textarea-label")
+		textarea.input__field.-area(name="" cols="30" rows="10" placeholder='Опишите подробно все свои восторги' aria-labelledby="textarea-label")
 
 	p._footer
 		button._submit.button(type='submit') Отправить отзыв
