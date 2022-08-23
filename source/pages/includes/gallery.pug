@@ -8,16 +8,25 @@
 
 section.gallery
 	h1._title.page__title Фото и видео
-	p._subtitle Не можете решиться на путешествие из-за курса? Фотографии помогут вам забыть о политике и экономике.
+	p._subtitle Не можете решиться на путешествие из-за курса? Фотографии помогут вам забыть о политике и экономике.
 
-	ul._list
+	div._list
 		each photo, index in PHOTOS
-			li.photo._post
-				h3._title=photo.title
-				img(src=`https://picsum.photos/280?${index}`, alt=photo.title width=280 height=280)
-				p._author=`Автор фото: ${photo.author}`
-				button(type="button" aria-label="Поставить лайк", aria-description=`Всего лайков ${photo.likes}`)=photo.likes
-					img(src="", alt="")
+			figure.photo._post
+				figcaption._info
+					h3._title=photo.title
+					p._author=`Автор фото: ${photo.author}`
+					button._like(type="button" aria-label="Поставить лайк" aria-description=`Всего лайков ${photo.likes}` value=photo.likes, aria-pressed="false")
+						svg(width=24, height=22, aria-hidden, fill="currentColor")
+							use(href="img/sprite.svg#like")
+				+responsiveImage({
+					source: `img/photos/photo-${index + 1}`, mainExt: "jpg",
+					className: "photo__image", pictureClass: "photo__picture",
+					alt: photo.title,
+					width: 280,
+					suffixes :  ["desktop", "tablet", "mobile"], extensions: ["avif", "webp"], sizes: [2, 3],
+					medias: ["min-width: 600px", "min-width: 1000px"]
+				})
 
 section.video-present
 	h2._title.page__title Все еще сомневаетесь?

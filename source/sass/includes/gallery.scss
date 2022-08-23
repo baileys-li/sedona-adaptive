@@ -1,11 +1,23 @@
 .gallery {
+	padding: 37px 0 0;
+	&__title {
+		margin: 0 0 20px;
+	}
+
+	&__subtitle {
+		max-width: 458px;
+		margin: 0 auto 70px;
+	}
 
 	&__list {
-		list-style: none;
-		padding: 0;
 		margin: 25px 0 16px;
 		text-align: left;
 		text-transform: none;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	&__post {
+		border-top: 1px solid #e5e5e5;
 	}
 
 	@media (min-width: 500px) {
@@ -13,10 +25,14 @@
 		&__list {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
+			border-bottom: none;
 		}
 
-		&__post:first-child {
-			grid-column: 1 / -1;
+		&__post {
+			border-top: none;
+			&:first-child {
+				grid-column: 1 / -1;
+			}
 		}
 	}
 	@media (min-width: 900px) {

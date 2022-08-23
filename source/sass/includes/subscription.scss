@@ -1,0 +1,51 @@
+@use "../common/variables";
+
+.subscription {
+	text-align: center;
+	min-height: 411px;
+	padding: 95px 200px 90px;
+	display: grid;
+	grid-template-columns: 1fr auto;
+
+	.subheading {
+		margin: 0 0 28px;
+		grid-column: 1 / -1;
+	}
+
+	&--background {
+		background-color: variables.$accent;
+		background-image: url(../img/background.jpg);
+		color: variables.$main-light;
+	}
+
+	&:hover {
+
+	}
+}
+
+/* .subscription--background {
+	background-color: variables.$accent;
+	background-image: url(../img/background.jpg);
+	color: variables.$main-light;
+}
+ */
+.subscription__lead {
+	margin: 0 auto 46px;
+	max-width: 31ch;
+	grid-column: 1 / -1;
+}
+
+.subscription__input {
+	background-color: variables.$secondary-light;
+	color: variables.$main-dark;
+	border-radius: 10px 0 0 10px;
+	border: 2px solid transparent;
+	padding: 16px 22px;
+}
+
+.subscription__submit {
+	font-size: 20px;
+	line-height: 1.8;
+	border-radius: 0px 10px 10px 0px;
+	padding: 12px 34px;
+}

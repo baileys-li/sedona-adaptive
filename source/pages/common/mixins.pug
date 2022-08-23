@@ -1,7 +1,7 @@
 mixin sourceForResponsiveImage({filename, extension, sizes, media})
 	source(srcset=[`${filename}.${extension}`, ...sizes.map(size => `${filename}@${size}x.${extension} ${size}x`)].join(', ') type=`image/${extension}` media=media)
 
-mixin responsiveImage({source, mainExt="png", className, pictureClass, alt, width, height, suffixes = ["desk", "tab", "mob"], extensions=["avif", "webp"], sizes=[2, 3], medias=[]})
+mixin responsiveImage({source, mainExt="png", className, pictureClass, alt, width, height=width, suffixes = ["desk", "tab", "mob"], extensions=["avif", "webp"], sizes=[2, 3], medias=[]})
 	picture(class=pictureClass)
 		each media, index in medias
 			each extension in [...extensions, mainExt]
