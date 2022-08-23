@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма отзыва</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="page__body">
+    <header class="header"><a class="header__logo" href="index.html"><img src="img/sedona.svg" alt="Герб Седоны" width="185" height="96"></a>
+      <button class="nav-toggler header__toggler" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть навигацию" title="Открыть навигацию" hidden>
+        <svg width="23" height="23" stroke="currentColor" stroke-width="4" viewBox="0 0 23 23">
+          <line class="nav-toggler__line nav-toggler__line--top" x1="0" y1="2" x2="23" y2="2"></line>
+          <line class="nav-toggler__line nav-toggler__line--middle" x1="0" y1="11" x2="23" y2="11"></line>
+          <line class="nav-toggler__line nav-toggler__line--bottom" x1="0" y1="20" x2="23" y2="20"></line>
+        </svg>
+      </button>
+      <nav class="header__nav" id="main-nav">
+        <ul class="header__nav-list">
+          <li class="header__item"><a class="link header__link" href="index.html">Главная</a></li>
+          <li class="header__item"><a class="link header__link" href="catalog.html">Фото и видео</a></li>
+          <li class="header__item"><a class="link header__link">Форма Отзыва</a></li>
+          <li class="header__item"><a class="link header__link" href="https://htmlacademy.ru/intensive/adaptive">HTML Academy</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="intro intro--simple">
+        <svg class="intro__image intro__image--simple" width="229" height="39" aria-labelledby="intro-title" role="img">
+          <title id="intro-title">Седона</title>
+          <use href="img/intro.svg#sedona"></use>
+        </svg>
+      </div>
+      <form class="form" method="post" action="https://echo.htmlacademy.ru/">
+        <h1 class="form__title page__title">Оставьте свой отзыв</h1>
+        <p class="form__subtitle">Помогите нашим отелям стать лучше! Оставьте отзыв о них, а также о посещенных вами достопримечательностях</p>
+        <fieldset class="form__field form__field--personal">
+          <legend class="form__legend">Представьтесь</legend>
+          <label class="input"><span class="input__label">Имя<a class="form__required" href="#required" aria-hidden="true" tabindex="-1">*</a></span>
+            <input class="input__field" type="text" name="first-name" value="Пётр" required>
+          </label>
+          <label class="input"><span class="input__label">Фамилия<a class="form__required" href="#required" aria-hidden="true" tabindex="-1">*</a></span>
+            <input class="input__field" type="text" name="last-name" value="Пустота" required>
+          </label>
+          <label class="input"><span class="input__label">Отчество</span>
+            <input class="input__field" type="text" name="patronymic" value="Викторович">
+          </label>
+        </fieldset>
+        <fieldset class="form__field form__field--contact">
+          <legend class="form__legend">Контактная информация</legend>
+          <label class="input"><span class="input__label">Контактный телефон<a class="form__required" href="#required" aria-hidden="true" tabindex="-1">*</a></span><span class="input__wrapper">
+              <input class="input__field input__field--icon" type="tel" name="telephone" placeholder="Введите телефон" required>
+              <svg class="input__icon" width="18" height="18" fill="#010101" aria-hidden="true">
+                <use href="img/sprite.svg#phone"></use>
+              </svg></span></label>
+          <label class="input"><span class="input__label">Электронная почта<span aria-hidden="true">*</span></span><span class="input__wrapper">
+              <input class="input__field" type="email" name="email" placeholder="Введите e-mail" required>
+              <svg class="input__icon" width="18" height="18" fill="#010101" aria-hidden="true">
+                <use href="img/sprite.svg#mail"></use>
+              </svg></span></label>
+        </fieldset>
+        <fieldset class="form__field form__field--impression">
+          <legend class="form__legend form__legend--full">Ваше общее впечатление</legend>
+          <p class="form__radios">
+            <label class="custom-chose">
+              <input class="custom-chose__native page__hidden" type="radio" name="impression" value="positive" checked><span class="custom-chose__custom custom-chose__custom--radio">Скорее положительное</span>
+            </label>
+            <label class="custom-chose">
+              <input class="custom-chose__native page__hidden" type="radio" name="impression" value="negative"><span class="custom-chose__custom custom-chose__custom--radio">Скорее отрицательное</span>
+            </label>
+            <label class="custom-chose">
+              <input class="custom-chose__native page__hidden" type="radio" name="impression" value="unknown"><span class="custom-chose__custom custom-chose__custom--radio">Затрудняюсь ответить</span>
+            </label>
+          </p>
+        </fieldset>
+        <fieldset class="form__field form__field--places">
+          <legend class="form__legend form__legend--full">Посещенные достопримечательности</legend>
+          <p class="form__checkboxes">
+            <label class="custom-chose">
+              <input class="custom-chose__native page__hidden" type="checkbox" name="bridge" checked><span class="custom-chose__custom custom-chose__custom--check">Мост Дьявола</span>
+            </label>
+            <label class="custom-chose">
+              <input class="custom-chose__native page__hidden" type="checkbox" name="mountain" checked><span class="custom-chose__custom custom-chose__custom--check">Гора-Колокол</span>
+            </label>
+            <label class="custom-chose">
+              <input class="custom-chose__native page__hidden" type="checkbox" name="park" checked><span class="custom-chose__custom custom-chose__custom--check">Слайд-парк</span>
+            </label>
+            <label class="custom-chose">
+              <input class="custom-chose__native page__hidden" type="checkbox" name="rocks"><span class="custom-chose__custom custom-chose__custom--check">Красные скалы</span>
+            </label>
+          </p>
+        </fieldset>
+        <fieldset class="form__field form__field--emotions input">
+          <legend class="form__legend form__legend--full" id="textarea-label">Опишите свои эмоции</legend>
+          <textarea class="input__field input__field--area form__area" name="" cols="30" rows="10" placeholder="Опишите подробно все свои восторги" aria-labelledby="textarea-label"></textarea>
+        </fieldset>
+        <p class="form__footer">
+          <button class="form__submit button" type="submit">Отправить отзыв</button><small class="form__note" id="required">* — обязательные поля</small>
+        </p>
+      </form>
+    </main>
+    <footer class="footer"><a class="footer__tag link" href="https://www.instagram.com/explore/tags/visitsedona/">#visitSedona</a>
+      <ul class="footer__socials">
+        <li><a class="button footer__social" href="https://vk.com/htmlacademy">
+            <svg fill="currentColor" aria-labelledby="vk-title" role="img" width="24" height="24">
+              <title id="vk-title">Мы ВКонтанте</title>
+              <use href="img/sprite.svg#vk"></use>
+            </svg></a></li>
+        <li><a class="button footer__social" href="https://t.me/htmlacademy">
+            <svg fill="currentColor" aria-labelledby="telegram-title" role="img" width="24" height="24">
+              <title id="telegram-title">Наш Телеграм</title>
+              <use href="img/sprite.svg#telegram"></use>
+            </svg></a></li>
+        <li><a class="button footer__social" href="https://www.youtube.com/user/htmlacademyru">
+            <svg fill="currentColor" aria-labelledby="youtube-title" role="img" width="24" height="24">
+              <title id="youtube-title">Наш Ютуб канал</title>
+              <use href="img/sprite.svg#youtube"></use>
+            </svg></a></li>
+      </ul><small><a class="footer__copyright link" href="https://htmlacademy.ru/">Разработано 
+          <svg width="27" height="35" fill="currentColor" role="img" aria-labelledby="htmlacademy-title">
+            <title id="htmlacademy-title">HTML Академией</title>
+            <use href="img/sprite.svg#academy"></use>
+          </svg></a></small>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>
