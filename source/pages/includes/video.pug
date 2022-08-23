@@ -1,0 +1,27 @@
+section.video-present
+	h2._title.page__title Все еще сомневаетесь?
+	p._description Смотрите видеопрезентацию и скорее за билетами, пока они не подорожали в очередной раз!
+	//- .video._video
+		video._media(width=280 height=177 poster="img/photos/video-desktop.jpg" playsinline loop )
+			source(src="https://cdn.videvo.net/videvo_files/video/free/2013-08/large_watermarked/hd0992_preview.mp4" type='video/mp4')
+		button._button(type="button")
+			svg._icon(role="img" fill="white" fill-opacity="0.7" width=48 height=54 aria-labelledby="play-title")
+				title#play-title Смотреть видео
+				use(href="img/sprite.svg#play")
+	a.video._video(href="https://youtu.be/HU22peKtyfY" target="_blank" rel="noopener noreferrer")
+		+responsiveImage({
+			source: 'img/photos/video', mainExt: "jpg",
+			className: "video__image", pictureClass: "video__media",
+			alt: "Тур по Седоне",
+			width: 280, height: 177,
+			suffixes :  ["desktop", "tablet", "mob"], extensions: ["avif", "webp"], sizes: [2, 3],
+			medias: ["min-width: 600px", "min-width: 1000px"]
+			})
+		button._button(type="button" hidden)
+			svg._icon(role="img" fill="white" fill-opacity="0.7" width=48 height=54 aria-labelledby="play-title")
+				title#play-title Смотреть видео
+				use(href="img/sprite.svg#play")
+//-
+	https://www.youtube.com/watch?v=HU22peKtyfY&t=1s
+	https://youtu.be/HU22peKtyfY
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/HU22peKtyfY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -1,0 +1,45 @@
+.video {
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	border: none;
+
+	&__media {
+		width: 100%;
+		height: auto;
+
+		display: flex;
+	}
+
+	&__image {
+		width: 100%;
+		height: auto;
+	}
+
+	&__button {
+		position: absolute;
+		z-index: 1;
+		left: calc(50% - #{48 * 0.5}px);
+		top: calc(50% - #{54 * 0.5}px);
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		outline: none;
+		cursor: pointer;
+	}
+	&__icon {
+		transition: {
+			property: fill-opacity, transform;
+			duration: 200ms;
+			timing-function: ease-in;
+		}
+
+		transform-origin: center;
+	}
+
+	&__button:focus-visible &__icon,
+	&:hover &__icon {
+		fill-opacity: 1;
+		transform: scale(1.7);
+	}
+}

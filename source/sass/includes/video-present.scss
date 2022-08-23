@@ -1,0 +1,22 @@
+.video-present {
+	padding: 18px var(--side-offset, 20px) 0;
+
+	&__title {
+		margin: 0 auto 0.5em;
+	}
+
+	&__description {
+		max-width: 44ch;
+		margin: 0 auto 2.7em;
+	}
+
+	&__video {
+		width: 100%;
+		height: auto;
+		max-width: 800px;
+		max-height: 500px;
+		margin: 0 auto;
+		aspect-ratio: 280 / 177;
+		background-color: hsl(203, 47%, 66%);
+	}
+}

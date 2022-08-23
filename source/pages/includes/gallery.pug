@@ -1,9 +1,9 @@
 -
 	const PHOTOS = [
-		{title: "Неродные просторы", author: "Борис", likes: 1350},
-		{title: "Местная растительность", author: "Сергей", likes: 143},
-		{title: "Дорога на север", author: "Петр", likes: 96},
-		{title: "Мост дьявола", author: "Антон", likes: 254},
+		{title: "Неродные просторы", author: "Борис", likes: 1350, alt: "Закат, трасса"},
+		{title: "Местная растительность", author: "Сергей", likes: 143, alt: "Цилиндропунция на фоне каньона"},
+		{title: "Дорога на север", author: "Петр", likes: 96, alt: "Дорожный серпантин"},
+		{title: "Мост дьявола", author: "Антон", likes: 254, alt: "Каменный мост"},
 	]
 
 section.gallery
@@ -22,14 +22,8 @@ section.gallery
 				+responsiveImage({
 					source: `img/photos/photo-${index + 1}`, mainExt: "jpg",
 					className: "photo__image", pictureClass: "photo__picture",
-					alt: photo.title,
+					alt: photo.alt,
 					width: 280,
 					suffixes :  ["desktop", "tablet", "mobile"], extensions: ["avif", "webp"], sizes: [2, 3],
 					medias: ["min-width: 600px", "min-width: 1000px"]
 				})
-
-section.video-present
-	h2._title.page__title Все еще сомневаетесь?
-	p._description Смотрите видеопрезентацию и скорее за билетами, пока они не подорожали в очередной раз!
-	video._video(width=280 height=177 controls)
-		source(src='#' type='')
